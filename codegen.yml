@@ -1,0 +1,11 @@
+schema:
+  - https://api.github.com/graphql: # エンドポイントのURL(通常は.envなどで管理)
+      headers:
+        "Authorization": "Bearer <Token>"
+documents: "./src/**/*.graphql" # クエリファイルの指定
+generates:
+  ./src/generated.ts: # 型定義のファイル作成先
+    plugins: # プラグインを指定
+      - typescript
+      - typescript-operations
+      - typed-document-node
